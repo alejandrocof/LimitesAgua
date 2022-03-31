@@ -104,11 +104,6 @@ inputVal.forEach( item => {
     } )
 });
 
-// origen: "Organolépticas y físicas",
-//         nombre: "Olor",
-//         maxNOM201: "Inodoro",
-//         maxNOM127: "Agradable",
-//         unidaes: ""
 
 
 
