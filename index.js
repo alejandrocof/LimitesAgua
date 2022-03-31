@@ -2,6 +2,7 @@
 const tablaHead = document.querySelector( 'thead');
 const tablaBody = document.querySelector( 'tbody');
 let   inputVal;
+let   colOrigen='';
 
 const addRow = ( param, index ) => {
 
@@ -10,6 +11,20 @@ const addRow = ( param, index ) => {
     const maxNOM = Math.max( maxNOM201, maxNOM127);
 
     const tr = document.createElement('tr');
+
+    //https://stackoverflow.com/questions/6997631/how-to-display-vertical-text-in-table-headers-with-auto-height-without-text-ov
+    //https://jsfiddle.net/qc20jowg/1/
+    if( colOrigen !== param.origen ){
+        colOrigen = param.origen
+        const N = maximos.filter( obj => { return obj.origen==colOrigen}).length;
+        const origen = document.createElement('td');
+        origen.setAttribute('style', 'writing-mode:vertical-rl' );
+        //origen.setAttribute('style', 'writing-mode:sideways-lr' );
+        origen.setAttribute('rowspan', N );
+        origen.innerText=`${param.origen}`;
+        tr.appendChild(origen);
+    }
+    
 
     const nombre = document.createElement('td');
     nombre.innerText=`${param.nombre}`;
@@ -47,6 +62,7 @@ const addRow = ( param, index ) => {
     nom127.setAttribute('id', `NOM127_${index}` );
     nom127.innerText=`${param.maxNOM127}`;
 
+    
     tr.appendChild(nombre);
     tr.appendChild(valor);
     tr.appendChild(unidades);
@@ -58,6 +74,10 @@ const addRow = ( param, index ) => {
 
 const initTable = () => {
     const tr = document.createElement('tr');
+
+    const origen = document.createElement('th');
+    origen.setAttribute('style','width:20px');
+    origen.innerText='';
 
     const nombre = document.createElement('th');
     //nombre.setAttribute('style','width:40%');
@@ -80,6 +100,7 @@ const initTable = () => {
     //nom127.setAttribute('style','width:15%');
     nom127.innerText=`NOM127`;
 
+    tr.appendChild(origen);
     tr.appendChild(nombre);
     tr.appendChild(valor);
     tr.appendChild(unidades);
