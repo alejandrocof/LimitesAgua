@@ -9,7 +9,7 @@ const addRow = ( param, index ) => {
 
     const maxNOM201=Number(param.maxNOM201);
     const maxNOM127=Number(param.maxNOM127);
-    const min_maxNOM = Math.min( maxNOM201, maxNOM127);
+    const maxNOM = Math.max( maxNOM201, maxNOM127);
 
     const tr = document.createElement('tr');
 
@@ -45,8 +45,8 @@ const addRow = ( param, index ) => {
     inputValor.setAttribute('style', `text-align:right; width:100%; box-sizing: border-box;background-color:${color}` );
     //inputValor.setAttribute('width','100%');
     inputValor.setAttribute('box-sizing','border-box');
-    if( min_maxNOM>0){
-        const decimals = Math.floor(Math.log10(min_maxNOM));
+    if( maxNOM>0){
+        const decimals = Math.floor(Math.log10(maxNOM));
         const step = Math.pow(10,decimals)/2;
         inputValor.setAttribute('step', step );
     }
