@@ -1,6 +1,7 @@
 const maximos =[
     {
         origen: "Organolépticas y físicas",
+        color: "#a1eaa1",
         nombre: "Olor",
         maxNOM201: "Inodoro",
         maxNOM127: "Agradable",
@@ -29,6 +30,7 @@ const maximos =[
     },
     {
         origen: "Microbiológicas",
+        color: "#62dd62",
         nombre: "Coliformes totales",
         maxNOM201: "1.1",
         maxNOM127: "2",
@@ -43,6 +45,7 @@ const maximos =[
     },
     {
         origen: "Metales pesados o metaloides",
+        color: "#f5d781",
         nombre: "Aluminio",
         maxNOM201: "",
         maxNOM127: "0.2",
@@ -190,6 +193,7 @@ const maximos =[
     },
     {
         origen: "Otros contaminantes",
+        color: "#f79e95",
         nombre: "Cianuros",
         maxNOM201: "0.05",
         maxNOM127: "0.07",
@@ -232,6 +236,7 @@ const maximos =[
     },
     {
         origen: "Desinfectantes",
+        color: "#f2f795",
         nombre: "Cloro residual",
         maxNOM201: "0.1",
         maxNOM127: "0.2 - 1.5",
@@ -239,6 +244,7 @@ const maximos =[
     },
     {
         origen: "Subproductos de desinfección",
+        color: "#95c9f7",
         nombre: "Cloro formaldehido",
         maxNOM201: "0.9",
         maxNOM127: "",
@@ -295,6 +301,7 @@ const maximos =[
     },
     {
         origen: "Aditivos",
+        color: "#b995f7",
         nombre: "Anhídrido carbónico BPF",
         maxNOM201: "",
         maxNOM127: "",

@@ -3,6 +3,7 @@ const tablaHead = document.querySelector( 'thead');
 const tablaBody = document.querySelector( 'tbody');
 let   inputVal;
 let   colOrigen='';
+let   color='';
 
 const addRow = ( param, index ) => {
 
@@ -15,10 +16,11 @@ const addRow = ( param, index ) => {
     //https://stackoverflow.com/questions/6997631/how-to-display-vertical-text-in-table-headers-with-auto-height-without-text-ov
     //https://jsfiddle.net/qc20jowg/1/
     if( colOrigen !== param.origen ){
-        colOrigen = param.origen
+        colOrigen = param.origen;
+        color = param.color;
         const N = maximos.filter( obj => { return obj.origen==colOrigen}).length;
         const origen = document.createElement('td');
-        origen.setAttribute('style', 'writing-mode:vertical-rl' );
+        origen.setAttribute('style', `writing-mode:vertical-rl; background-color:${color}` );
         //origen.setAttribute('style', 'writing-mode:sideways-lr' );
         origen.setAttribute('rowspan', N );
         origen.innerText=`${param.origen}`;
@@ -27,9 +29,11 @@ const addRow = ( param, index ) => {
     
 
     const nombre = document.createElement('td');
+    nombre.setAttribute('style', `background-color:${color}` );
     nombre.innerText=`${param.nombre}`;
     
     const valor = document.createElement('td');
+    valor.setAttribute('style', `background-color:${color}` );
     //valor.setAttribute('width','50px');
     //valor.setAttribute('style','width:10%');
     const inputValor = document.createElement('input');
@@ -38,7 +42,7 @@ const addRow = ( param, index ) => {
     inputValor.setAttribute('step', 0.1 );
     inputValor.setAttribute('id', index );
     inputValor.setAttribute('class', 'inputVal' );
-    inputValor.setAttribute('style', 'text-align:right; width:100%; box-sizing: border-box;' );
+    inputValor.setAttribute('style', `text-align:right; width:100%; box-sizing: border-box;background-color:${color}` );
     //inputValor.setAttribute('width','100%');
     inputValor.setAttribute('box-sizing','border-box');
     if( maxNOM>0){
@@ -49,7 +53,7 @@ const addRow = ( param, index ) => {
     valor.appendChild(inputValor);
 
     const unidades = document.createElement('td');
-    unidades.setAttribute('style', 'text-align:left' );
+    unidades.setAttribute('style', `text-align:left; background-color:${color}` );
     unidades.innerText=`${param.unidades}`;
 
     const nom201 = document.createElement('td');
