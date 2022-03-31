@@ -239,7 +239,8 @@ const maximos =[
         color: "#f2f795",
         nombre: "Cloro residual",
         maxNOM201: "0.1",
-        maxNOM127: "0.2 - 1.5",
+        minNOM127: "0.2",
+        maxNOM127: "1.5",
         unidades: "mg/L"
     },
     {
@@ -339,7 +340,8 @@ const maximos =[
         origen: "Aditivos",
         nombre: "Potencial de hidrógeno pH",
         maxNOM201: "",
-        maxNOM127: "6.5 - 8.5",
+        minNOM127: "6.5",
+        maxNOM127: "8.5",
         unidades: "mg/L"
     },
     {

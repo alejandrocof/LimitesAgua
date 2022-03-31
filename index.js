@@ -9,7 +9,7 @@ const addRow = ( param, index ) => {
 
     const maxNOM201=Number(param.maxNOM201);
     const maxNOM127=Number(param.maxNOM127);
-    const maxNOM = Math.max( maxNOM201, maxNOM127);
+    const min_maxNOM = Math.min( maxNOM201, maxNOM127);
 
     const tr = document.createElement('tr');
 
@@ -45,8 +45,8 @@ const addRow = ( param, index ) => {
     inputValor.setAttribute('style', `text-align:right; width:100%; box-sizing: border-box;background-color:${color}` );
     //inputValor.setAttribute('width','100%');
     inputValor.setAttribute('box-sizing','border-box');
-    if( maxNOM>0){
-        const decimals = Math.floor(Math.log10(maxNOM));
+    if( min_maxNOM>0){
+        const decimals = Math.floor(Math.log10(min_maxNOM));
         const step = Math.pow(10,decimals)/2;
         inputValor.setAttribute('step', step );
     }
@@ -64,7 +64,13 @@ const addRow = ( param, index ) => {
     const nom127 = document.createElement('td');
     nom127.setAttribute('style', 'background-color:#f0f0f0' );
     nom127.setAttribute('id', `NOM127_${index}` );
-    nom127.innerText=`${param.maxNOM127}`;
+    if( !!param.minNOM127 ){
+        nom127.innerText=`${param.minNOM127} - ${param.maxNOM127}`;
+    }
+    else{
+        nom127.innerText=`${param.maxNOM127}`;
+    }
+    
 
     
     tr.appendChild(nombre);
@@ -125,6 +131,7 @@ inputVal.forEach( item => {
     item.addEventListener('change', (input) => {
         const max201=maximos[input.target.id].maxNOM201;
         const max127=maximos[input.target.id].maxNOM127;
+        const min127=maximos[input.target.id].minNOM127;
         const nom201 = document.querySelector( `#NOM201_${input.target.id}`);
         const nom127 = document.querySelector( `#NOM127_${input.target.id}`);
         
@@ -145,7 +152,13 @@ inputVal.forEach( item => {
                     nom127.setAttribute('style', 'background-color:#ff9090' );
                 }
                 else{
-                    nom127.setAttribute('style', 'background-color:#90ff90' );
+                    if( !!min127 && val < min127){
+                        nom127.setAttribute('style', 'background-color:#ff9090' );
+                    }
+                    else{
+                        nom127.setAttribute('style', 'background-color:#90ff90' );
+                    }
+                    
                 }
             }
         }
