@@ -81,25 +81,33 @@ inputVal.forEach( item => {
         const max127=maximos[input.target.id].maxNOM127;
         const nom201 = document.querySelector( `#NOM201_${input.target.id}`);
         const nom127 = document.querySelector( `#NOM127_${input.target.id}`);
-        const val=Number(input.target.value);
-        console.log(max201);
-        if(!!max201){
-            if( val > max201 ){
-                nom201.setAttribute('style', 'background-color:#ff9090' );
+        
+        //console.log(max201);
+        if(!!input.target.value){
+            const val=Number(input.target.value);
+            if(!!max201){
+                if( val > max201 ){
+                    nom201.setAttribute('style', 'background-color:#ff9090' );
+                }
+                else{
+                    nom201.setAttribute('style', 'background-color:#90ff90' );
+                }
             }
-            else{
-                nom201.setAttribute('style', 'background-color:#90ff90' );
+            
+            if( !!max127 ){
+                if( val > max127 ){
+                    nom127.setAttribute('style', 'background-color:#ff9090' );
+                }
+                else{
+                    nom127.setAttribute('style', 'background-color:#90ff90' );
+                }
             }
+        }
+        else{
+            nom201.setAttribute('style', 'background-color:#f0f0f0' );
+            nom127.setAttribute('style', 'background-color:#f0f0f0' );
         }
         
-        if( !!max127 ){
-            if( val > max127 ){
-                nom127.setAttribute('style', 'background-color:#ff9090' );
-            }
-            else{
-                nom127.setAttribute('style', 'background-color:#90ff90' );
-            }
-        }
         
     } )
 });
