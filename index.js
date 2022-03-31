@@ -81,13 +81,14 @@ inputVal.forEach( item => {
         const max127=maximos[input.target.id].maxNOM127;
         const nom201 = document.querySelector( `#NOM201_${input.target.id}`);
         const nom127 = document.querySelector( `#NOM127_${input.target.id}`);
-        if(input.target.value > max201 ){
+        const val=Number(input.target.value);
+        if(val > max201 ){
             nom201.setAttribute('style', 'background-color:#ff9090' );
         }
         else{
             nom201.setAttribute('style', 'background-color:#90ff90' );
         }
-        if(input.target.value > max127 ){
+        if(val > max127 ){
             nom127.setAttribute('style', 'background-color:#ff9090' );
         }
         else{
